@@ -26,7 +26,6 @@
 	<script src="{{ url_for('static', filename='api.js') }}"></script>
 	<script src="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css>">
   <meta name='viewport' content='width=device-width, initial-scale=1'>
             
@@ -61,12 +60,13 @@
 
 <div class="split right">
 <button id='total' type='button' class="btn btn-success" onclick=tableEventProcessor();>Total</button>
+<button id='update' type='button' class="btn btn-success" onclick=updateTableData();>Update</button>
 <input type="hidden" id="sum_doc" name="custId" value="3487">
 
 <br>
 <br>
 <div id="imsg">
-<table id="expense_table"  class="thead-dark table table-striped table-bordered" width="7 0%"></table>
+<table id="expense_table"  class="thead-dark table table-striped table-bordered" width="70%"></table>
 </div>
 </div>
 

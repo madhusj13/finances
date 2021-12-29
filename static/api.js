@@ -42,8 +42,6 @@ function tableRowProcessor(row) {
 	var row_data = row.cells;
 	console.log(row_data[0].innerHTML);
 	processMonthEntry(row_data[0].innerHTML);
-	console.log(expense_data);
-
 }
 
 function processMonthEntry(month) {
@@ -53,6 +51,7 @@ function processMonthEntry(month) {
 	).then((response) => {
 		expense_data = response.data;
 		expense_data = createDataset(expense_data);
+		console.log(expense_data);
 		createExpenseTable(expense_data);
 	})
 		.catch((error) => {
@@ -65,7 +64,14 @@ function createDataset(expense_data) {
 	var dataSet = [];
 	for (var i = 0; i < expense_data.length; i++) {
 		dataSet.push(
-			["<input type='checkbox' name='ips' checked>", i, expense_data[i].source, expense_data[i].transaction_date, expense_data[i].transaction_store, expense_data[i].transaction_amount]
+			[
+				"<input type='checkbox' name='ips' checked>",
+				i,
+				expense_data[i].source,
+				expense_data[i].transaction_date,
+				expense_data[i].transaction_store,
+				expense_data[i].transaction_amount
+			]
 		)
 	}
 	return dataSet
