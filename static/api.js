@@ -83,7 +83,7 @@ function createExpenseTable(expense_data) {
 		data: expense_data,
 		columns: [
 			{ title: "Select" },
-			{ title: "S. No" },
+			{ title: "Serial" },
 			{ title: "Source" },
 			{ title: "Transaction Data" },
 			{ title: "Transaction Store" },
