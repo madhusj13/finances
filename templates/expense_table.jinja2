@@ -1,0 +1,73 @@
+    {% block styles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/jquery.tabledit.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+
+
+
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='expense_table.css') }}">
+
+
+	<script src="{{ url_for('static', filename='api.js') }}"></script>
+	<script src="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css>">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+            
+
+</head>
+
+<body>
+{% endblock %}
+<div class="split left">
+<div class="col-sm-4">
+<table id="month_list" class="table" style="width:60%">
+        <thead>
+            <tr>
+                <th>Month</th>
+            </tr>
+        </thead>
+        <tbody>
+   {% for item in input %}
+   <tr id={{ item }} onclick="tableRowProcessor(this);"> 
+        <td>{{ item }}</td>
+   </tr>
+   {% endfor %}
+   </tbody>
+</table>
+<br>
+<br>
+
+</div>
+<button id='upload' type='button' class="btn btn-success" onclick=uploadEventProcessor();>Upload</button>
+
+</div>
+
+<div class="split right">
+<button id='total' type='button' class="btn btn-success" onclick=tableEventProcessor();>Total</button>
+<input type="hidden" id="sum_doc" name="custId" value="3487">
+
+<br>
+<br>
+<div id="imsg">
+<table id="expense_table"  class="thead-dark table table-striped table-bordered" width="7 0%"></table>
+</div>
+</div>
+
+</body> 
